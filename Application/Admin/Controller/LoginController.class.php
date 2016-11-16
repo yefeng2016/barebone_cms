@@ -22,11 +22,13 @@ class LoginController extends Controller {
     	if(!trim($password)){
     		return show(0,'密码有误');
     	}
-        $res = D('Admin')->checkUser($username);
-        if($res){
-            return show(1,'验证成功');
+        $res = D('Admin')->checkUser($username,$password);
+        if(!$res){
+            return show(0,'账号密码有误');
         }
-    	
+        session('username',$username);
+    	return show(1,'验证成功');
+        $this->redirect('Admin/index/index');
 
     }
 

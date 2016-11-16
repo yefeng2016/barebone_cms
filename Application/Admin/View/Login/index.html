@@ -31,9 +31,9 @@
     margin-left: auto;
     margin-right: auto;
   }
+
 </style>
 <div class="s_center container col-lg-6 ">
-
     <form class="form-signin" enctype="multipart/form-data"  method="post" >
       <h2 class="form-signin-heading">请登录</h2>
       <label class="sr-only">用户名</label>

@@ -19,6 +19,9 @@ var login = {
 			{
 			return dialog.error(result.message);
 			}
+			if(result.status == 1){
+				window.location.href="/index.php?m=admin&c=index";
+			}
 
 		},'JSON');
 
