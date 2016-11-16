@@ -9,10 +9,11 @@ class AdminModel extends Model{
 	 	$this->_db = M('Admin');
 	 }
 	//验证账号密码，数据库匹配
-	public function checkUser($username){
-		
-		$res = $this->_db->where("username='$username'")->find();
-		print_r($res);
+	public function checkUser($username,$password){
+		//define('MD5_SEC','sing_cms');
+		$md5_sec = C('MD5_SEC');
+		$password = md5($password.$md5_sec);
+		$res = $this->_db->where("username='$username' AND password='$password'")->find();
 		return $res;
 	}
 }
