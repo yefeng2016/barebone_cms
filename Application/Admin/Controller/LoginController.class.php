@@ -8,7 +8,9 @@ use Think\Controller;
 class LoginController extends Controller {
 
     public function index(){
-
+        if(session('username')){
+            $this->redirect('/admin.php?c=index');
+        }
     	return $this->display();
     }
 
@@ -20,16 +22,21 @@ class LoginController extends Controller {
     		return show(0,'用户名有误');
     	}
     	if(!trim($password)){
-    		return show(0,'密码有误');
+    		return show(0,'密码有误'); 
     	}
-        $res = D('Admin')->checkUser($username,$password);
+        $res = D('Admin')->checkUser($username,getMd5Password($password));
         if(!$res){
             return show(0,'账号密码有误');
         }
         session('username',$username);
     	return show(1,'验证成功');
-        $this->redirect('Admin/index/index');
+        $this->redirect('/admin.php?&c=index');
 
+    }
+
+    public function loginout(){
+        session('username',null);
+        $this->redirect('/admin.php?&c=login');
     }
 
 }

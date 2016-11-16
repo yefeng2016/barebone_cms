@@ -10,9 +10,7 @@ class AdminModel extends Model{
 	 }
 	//验证账号密码，数据库匹配
 	public function checkUser($username,$password){
-		//define('MD5_SEC','sing_cms');
-		$md5_sec = C('MD5_SEC');
-		$password = md5($password.$md5_sec);
+		//$res返回的是一个用户信息的数组
 		$res = $this->_db->where("username='$username' AND password='$password'")->find();
 		return $res;
 	}

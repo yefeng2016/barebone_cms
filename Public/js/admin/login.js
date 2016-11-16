@@ -10,7 +10,7 @@ var login = {
 			dialog.error('请输入密码');
 		}
 		//定义提交的地址，check方法
-		var url = "/index.php?m=admin&c=login&a=check";
+		var url = "/admin.php?c=login&a=check";
 		//定义json格式的数据，注意不需要双印号
 		var data = {'username':username,'password':password};
 		//异步提交数据
@@ -20,7 +20,8 @@ var login = {
 			return dialog.error(result.message);
 			}
 			if(result.status == 1){
-				window.location.href="/index.php?m=admin&c=index";
+				return dialog.success(result.message,"/admin.php");
+				
 			}
 
 		},'JSON');

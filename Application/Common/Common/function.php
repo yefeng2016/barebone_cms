@@ -11,3 +11,7 @@ function show($status,$message,$data = array()){
 	 	exit(json_encode($result));
 	
 }
+
+function getMd5Password($pwd){
+	return $pwd = md5($pwd . C('MD5_SEC'));
+}
