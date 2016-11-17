@@ -28,7 +28,7 @@ class LoginController extends Controller {
         if(!$res){
             return show(0,'账号密码有误');
         }
-        session('username',$username);
+        session('adminUser',$res);
     	return show(1,'验证成功');
         $this->redirect('/admin.php?&c=index');
 
@@ -36,7 +36,7 @@ class LoginController extends Controller {
 
     public function loginout(){
         session('username',null);
-        redirect('/admin.php?&c=login',2,'页面跳转中');
+        redirect('/admin.php?&c=login',2,'页面跳转中~~');
     }
 
 }
