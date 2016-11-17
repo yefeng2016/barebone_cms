@@ -9,7 +9,7 @@ class LoginController extends Controller {
 
     public function index(){
         if(session('username')){
-            $this->redirect('/admin.php?c=index');
+            redirect('/admin.php?c=index');
         }
     	return $this->display();
     }
@@ -36,7 +36,7 @@ class LoginController extends Controller {
 
     public function loginout(){
         session('username',null);
-        $this->redirect('/admin.php?&c=login');
+        redirect('/admin.php?&c=login',2,'页面跳转中');
     }
 
 }
