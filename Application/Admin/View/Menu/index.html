@@ -57,7 +57,7 @@
                     <table class="table table-bordered table-hover singcms-table">
                         <thead>
                         <tr>
-                            <th width="14">排序</th>
+                            <th width="50">排序</th>
                             <th>id</th>
                             <th>菜单名</th>
                             <th>模块名</th>
@@ -67,24 +67,31 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <volist name="menus" id="menu">
+                        <volist name="menus" id="menu" key="k">
                             <tr>
-                                <td><input size="4" type="text" name="" value=""/></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{$k}</td>
+                                <td>{$menu.menu_id}</td>
+                                <td>{$menu.name}</td>
+                                <td>{$menu.m}</td>
+                                <td>{$menu.type|getMenutype}</td>
+                                <td>{$menu.status|getMenustatus}</td>
                                 <td><span class="glyphicon glyphicon-edit" aria-hidden="true" id="singcms-edit" attr-id=""></span>    <a href="javascript:void(0)" attr-id="" id="singcms-delete"  attr-a="menu" attr-message="删除"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a></td>
-                            </tr>
+                            </tr>                   
                         </volist>
-
                         </tbody>
                     </table>
                     </form>
-                    <nav>
+
+                    <nav class="page_nav">
                         <ul class="pagination">
-                            
+                        {$page}
+                            <!-- <li><a href="#">&laquo;</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">&raquo;</a></li> -->
                         </ul>
                     </nav>
                     

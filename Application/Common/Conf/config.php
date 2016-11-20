@@ -7,5 +7,6 @@ return array(
     //url模式0为普通模式
     'URL_MODEL'=>0,
     'MD5_SEC'=>'sing_cms',
+    'PageSize'=>3,
 
 );

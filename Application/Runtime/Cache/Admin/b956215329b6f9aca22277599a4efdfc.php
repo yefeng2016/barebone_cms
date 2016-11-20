@@ -135,7 +135,7 @@
                     <table class="table table-bordered table-hover singcms-table">
                         <thead>
                         <tr>
-                            <th width="14">排序</th>
+                            <th width="50">排序</th>
                             <th>id</th>
                             <th>菜单名</th>
                             <th>模块名</th>
@@ -145,22 +145,29 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <?php if(is_array($menus)): $i = 0; $__LIST__ = $menus;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$menu): $mod = ($i % 2 );++$i;?><tr>
-                                <td><input size="4" type="text" name="" value=""/></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                        <?php if(is_array($menus)): $k = 0; $__LIST__ = $menus;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$menu): $mod = ($k % 2 );++$k;?><tr>
+                                <td><?php echo ($k); ?></td>
+                                <td><?php echo ($menu["menu_id"]); ?></td>
+                                <td><?php echo ($menu["name"]); ?></td>
+                                <td><?php echo ($menu["m"]); ?></td>
+                                <td><?php echo (getMenutype($menu["type"])); ?></td>
+                                <td><?php echo (getMenustatus($menu["status"])); ?></td>
                                 <td><span class="glyphicon glyphicon-edit" aria-hidden="true" id="singcms-edit" attr-id=""></span>    <a href="javascript:void(0)" attr-id="" id="singcms-delete"  attr-a="menu" attr-message="删除"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a></td>
                             </tr><?php endforeach; endif; else: echo "" ;endif; ?>
-
                         </tbody>
                     </table>
                     </form>
-                    <nav>
+
+                    <nav class="page_nav">
                         <ul class="pagination">
-                            
+                        <?php echo ($page); ?>
+                            <!-- <li><a href="#">&laquo;</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">&raquo;</a></li> -->
                         </ul>
                     </nav>
                     
